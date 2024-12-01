@@ -1,11 +1,17 @@
 package com.bankSystem.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "bank-accounts")
+@Table(name = "bank_accounts")
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class BankAccount {
 
     @Id
@@ -16,11 +22,12 @@ public class BankAccount {
 
     private double balance;
 
-    public BankAccount() {
-    }
-
-    public BankAccount(String accountHolderName, double balance) {
-        this.accountHolderName = accountHolderName;
-        this.balance = balance;
+    @Override
+    public String toString() {
+        return "BankAccount{" +
+                "accountNumber=" + accountNumber +
+                ", accountHolderName='" + accountHolderName + '\'' +
+                ", balance=" + balance +
+                '}';
     }
 }

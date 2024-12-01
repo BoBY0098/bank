@@ -7,13 +7,16 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.locks.ReentrantLock;
 
 @Service
-public class Bank {
+public class BankService {
 
     private ConcurrentHashMap<Long, BankAccount> accounts = new ConcurrentHashMap<>();
     private ReentrantLock lock = new ReentrantLock();
 
     public BankAccount createAccount(String accountHolderName, double initialBalance) {
-        BankAccount account = new BankAccount(accountHolderName, initialBalance);
+        BankAccount account = BankAccount.builder()
+                .accountHolderName(accountHolderName)
+                .balance(initialBalance)
+                .build();
         accounts.put(account.getAccountNumber(), account);
         return account;
     }

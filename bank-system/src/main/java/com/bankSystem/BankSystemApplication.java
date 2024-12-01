@@ -1,4 +1,4 @@
-package com.example.bank_system;
+package com.bankSystem;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -41,7 +41,8 @@ public class Bank {
     public void transfer(Long fromAccount, Long toAccount, double amount) {
         lock.lock();
         try {
-            withdraw(fromAccount, amount); deposit(toAccount, amount);
+            withdraw(fromAccount, amount);
+            deposit(toAccount, amount);
         } finally {
             lock.unlock();
         }
